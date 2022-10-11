@@ -1,0 +1,12 @@
+﻿Must include EntityFrameWork nuget packages
+// 1- Class -> PostDbContext : DbContext
+// 2- appsettings.json -> Add Connection String
+// 3- Program.cs -> AddDbContext (options => useSqlServer)
+// 4- Constractour -> :base (options)
+// 5- Add-migration
+
+//TODO :
+
+Create CategoryController
+	-> Index()
+		-> Categories With Posts and CountOfPosts

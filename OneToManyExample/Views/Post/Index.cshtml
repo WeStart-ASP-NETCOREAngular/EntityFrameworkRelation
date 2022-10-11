@@ -1,0 +1,52 @@
+﻿@model List<Post>
+@{
+}
+
+<a class="btn btn-primary" asp-action="Add" asp-controller="Post">Add Post</a>
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["success"]
+    </div>
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                Post ID
+            </td>
+            <td>
+                Title
+            </td>
+            <td>
+                Created at
+            </td>
+            <td>
+                Category
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Post item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.CreatedAt.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.Category.Name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

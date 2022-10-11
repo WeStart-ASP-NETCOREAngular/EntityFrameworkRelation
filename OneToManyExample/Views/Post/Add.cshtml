@@ -1,0 +1,15 @@
+﻿@model AddPostVM
+@{
+}
+
+
+<form asp-action="Add" method="post">
+    <label asp-for="Post.Title"></label>
+    <input class="form-control" asp-for="Post.Title" />
+    <label asp-for="Post.Body"></label>
+    <input class="form-control" asp-for="Post.Body" />
+    <label asp-for="Post.CategoryId"></label>
+    <select class="form-control" asp-for="Post.CategoryId" asp-items="Model.categories">
+    </select>
+    <input type="submit" value="Add Post" />
+</form>
