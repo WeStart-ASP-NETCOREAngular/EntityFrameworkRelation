@@ -8,5 +8,16 @@
 //TODO :
 
 Create CategoryController
-	-> Index()
+	-> Index() 
 		-> Categories With Posts and CountOfPosts
+
+Requierd : 
+	1- Create ASP.NET CORE MVC APP
+	2- Create Controllers
+		-> ProjectController Index,Details(project), Add, Edit,Delete, (Title, ImageName, Body)
+		-> PostController Index,Details(Post), Add,Edit,Delete
+	3- Create Views And Import Project (Portfolio-Project)
+	
+
+
+
