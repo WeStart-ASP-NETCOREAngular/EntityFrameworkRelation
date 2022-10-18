@@ -30,6 +30,9 @@
             <td>
                 Category
             </td>
+            <td>
+                Tags
+            </td>
         </tr>
     </thead>
     <tbody>
@@ -51,6 +54,13 @@
                 <td>
                     @item.Category.Name
                 </td>
+                <td>
+                    @foreach (var tag in item.PostTags)
+                    {
+                        @tag.Tag.Name
+                    }
+                </td>
+
             </tr>
         }
     </tbody>

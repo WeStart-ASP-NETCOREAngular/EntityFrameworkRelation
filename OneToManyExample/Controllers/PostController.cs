@@ -19,7 +19,10 @@ namespace OneToManyExample.Controllers
         }
         public IActionResult Index()
         {
-            List<Post> posts = _context.Posts.Include(x => x.Category).ToList();
+            List<Post> posts = _context.Posts.Include(x => x.Category)
+                .Include(x => x.PostTags)
+                .ThenInclude(x=>x.Tag)
+                .ToList();
 
             return View(posts);
         }
@@ -49,13 +52,22 @@ namespace OneToManyExample.Controllers
             post.Image.CopyTo(new FileStream(filePath, FileMode.Create));
 
 
-            _context.Posts.Add(new Post
+            var postAdded = new Post
             {
                 Title = post.Title,
                 Body = post.Body,
                 CategoryId = post.CategoryId,
                 ImageName = uniqueName
-            });
+            };
+
+
+            _context.Posts.Add(postAdded);
+
+            _context.SaveChanges();
+
+            _context.PostTags.Add(new PostTag { PostId = postAdded.Id, TagId = 1 });
+            _context.PostTags.Add(new PostTag { PostId = postAdded.Id, TagId = 2 });
+
             _context.SaveChanges();
 
             TempData["success"] = "Successfully Added";

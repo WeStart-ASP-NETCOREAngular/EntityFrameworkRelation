@@ -19,5 +19,8 @@ namespace OneToManyExample.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        public List<PostTag> PostTags { get; set; }
+
+
     }
 }
